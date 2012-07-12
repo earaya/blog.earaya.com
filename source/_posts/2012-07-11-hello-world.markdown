@@ -12,4 +12,4 @@ I feel like my [old blog](http://adotnetdude.blogspot.com) just didn’t fit me 
 
 I’ve also been itching to build a blog just out of static files, host them on [S3](http://aws.amazon.com/s3/) and serve them through [CloudFront](http://aws.amazon.com/cloudfront/). So I finally bit the bullet and got it all done; I'll be writing a bit about how to host your own [Octopress](http://octopress.org) blog on S3 later. 
 
-Finally, I'd like to thank [Erik Zaadi](http://www.erikzaadi.com/) for his awesome [Solarized Octopress Theme](https://github.com/erikzaadi/solarized-octopress-theme); it's a great theme, don't you think?
+One last thing: I'd like to thank [Erik Zaadi](http://www.erikzaadi.com/) for his awesome [Solarized Octopress Theme](https://github.com/erikzaadi/solarized-octopress-theme); it's a great theme, don't you think?
