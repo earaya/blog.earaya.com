@@ -4,10 +4,10 @@
 
 url: http://blog.earaya.com
 title: eSteve's Blog
-subtitle: A blog about code and stuff.
+subtitle: A blog about mostly about the art of writing software.
 author: Esteban Araya
 simple_search: http://google.com/search
-description:
+description: A blog mostly about the art of writing software.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -72,7 +72,7 @@ twitter_show_follower_count: false
 twitter_tweet_button: true
 
 # Google +1
-google_plus_one: false
+google_plus_one: true
 google_plus_one_size: medium
 
 # Google Plus Profile
