@@ -6,11 +6,11 @@ comments: true
 categories: [aws-s3, aws-cloudfront, aws-route53]
 ---
 
-There are plenty of guides on how to host your static content on S3 and ClouFront, so in this tutorial I'll just focus on some of the likely problems you'll run into, and some good tips on making things easier.
+There are plenty of guides on how to host your static content on S3 and ClouFront, so in this tutorial I'll just focus on some of the likely problems you'll run into, and some good tips on making things better.
 
 ###S3
 
-The first thing you'll have to do to host your static content is create an S3 bucket. This is straight forward, but there are three things you must make sure are setup correctly:
+The first thing you'll have to do to host your static content is create an S3 bucket to upload your content. This is straight forward, but there are three things you must make sure are setup correctly:
 
 1. Make sure the bucket's name matches the URL you want to use. For example, for this blog, the bucket's name is blog.earaya.com.
 
@@ -20,7 +20,7 @@ The first thing you'll have to do to host your static content is create an S3 bu
 
 	{% img /images/s3-web-settings.png 'Enable Static Website on S3' 'S3 Static Website Settings' %}
 
-	This step allows you to create an endpoint through which your assets can be accessed. It's important to note this endpoint as we'll be using it later to setup CloudFront.
+	This step allows you to create an HTTP endpoint through which your assets can be accessed. It's important to note this endpoint as we'll be using it later to setup CloudFront.
 
 3. Setup a bucket policy allowing the "GetObject" action to anonymous users. You'll want to make sure you do this at the bucket level so you don't have to set ACLs for every new file you upload.
 
@@ -62,17 +62,17 @@ When you're done with the wizard, note the domain name for your CloudFront distr
 {% img right /images/route53-cname-settings.png 400 'Setup CNAME on Route 53' 'DNS Settings' %}
 
 Add a CNAME, and point it to the domain name of your CloudFront distribution. This blog, for example, points "blog.earaya.com" to [d31e45oz3360lh.cloudfront.net
-](d31e45oz3360lh.cloudfront.net) (which I when I finished setting up my CF distribution as described above).
+](d31e45oz3360lh.cloudfront.net) (which is what I got when I finished setting up my CF distribution as described above).
 
-You don't necessarily have to do this on AWS; your domain name registrar can likely add a CNAME record and point it to the CloudFront URL as well.
+You don't necessarily have to setup DNS on AWS; your domain name registrar can likely add a CNAME record and point it to the CloudFront URL as well.
 
 I mostly ended up using Route53 because I felt like trying it out. Your registrar probably has decent DNS service, so you could just use that instead.
 
 ###Performance Tips
 
-S3, being just a store, won't compress files for you. If you want to serve compressed content (which you should), you're going to have jump through quite a few hoops (I might do a post on this later) to get that working out of S3.
+S3, being just a store, won't compress files for you. If you want to serve compressed content (which you should), you'll have to jump through quite a few hoops to get that working. Look at the "Serving Compressed Files From Amazon S3" in this [guide here](http://docs.amazonwebservices.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html).
 
-Also, S3 won't set any caching headers by default. You'll have to make sure to set the appropriate headers manually on each file you want cached. The good news is that although setting this up is tedious, CloudFront will respect your caching headers and evict content appropirately.
+Also, S3 won't set any caching headers by default. You'll have to make sure you set the appropriate headers manually on each file you want cached. The good news is that although setting this up is tedious, CloudFront will respect your caching headers and evict content appropirately.
 
 ###Summary
 
