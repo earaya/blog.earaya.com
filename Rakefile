@@ -206,6 +206,11 @@ end
 # Deploying  #
 ##############
 
+desc "S3 deploy task"
+task :s3deploy do
+	puts "## Deploy site to S3"
+end
+
 desc "Default deploy task"
 task :deploy do
   # Check if preview posts exist, which should not be published
