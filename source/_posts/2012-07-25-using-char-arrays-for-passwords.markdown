@@ -12,7 +12,7 @@ The reason is simple: some people feel that using a `char[]` is safer since you 
 
 The implication, of course, is that an attacker may read the contents of the memory before the `String` is garbage collected and steal the password.
 
-This, however, seems a moot to me. Switching to a `char[]` does not really solve the problem; it only reduces the time window in which the memory contents are available to an attacker. This is even worse than [security through obscurity](http://en.wikipedia.org/wiki/Security_through_obscurity) if you ask me . I'll also say that if someone is able to read the contents of your memory space, you have bigger problems than using a `String` for your password.
+This, however, seems a moot to me. Switching to a `char[]` does not really solve the problem; it only reduces the time window in which the memory contents are available to an attacker. This is even worse than [security through obscurity](http://en.wikipedia.org/wiki/Security_through_obscurity); really, this is just giving up and pretending to do something to address the problem. I'll also say that if someone is able to read the contents of your memory space, you have bigger problems than using a `String` for your password.
 
 Nonetheless, there is one slight advantage in using character arrays for sensitive data: you're less likely to accidentally print the contents of an `Array` (to a log, or console, etc.) than the contents of a `String`. 
 
