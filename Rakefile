@@ -211,7 +211,7 @@ task :s3deploy do
 	puts "## Deploy site to S3"
 	Rake::Task["generate"].execute
 	puts "## Deploying images..."
-	system ("s3cmd sync public/images/ s3://blog.earaya.com/images/ --recursive --delete-removed --add-header \"Expires: " + (DateTime.now + 365).to_date.httpdate.to_s + "\"")
+	system ("s3cmd sync public/images/ s3://blog.earaya.com/images/ --recursive --delete-removed --add-header \"Cache-Control: public\" --add-header \"Expires: " + (DateTime.now + 365).to_date.httpdate.to_s + "\"")
 	
 	puts "## Gzipping sytlesheets..."
 	system ("for f in $(find public/stylesheets/ -name *.css) ; do gzip -c -9 \"$f\" > \"$f.gz\" ; mv \"$f.gz\" \"$f\"  ; done")

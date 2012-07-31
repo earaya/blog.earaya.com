@@ -18,7 +18,7 @@ The first thing you'll have to do to host your static content is create an S3 bu
 
 	This is done by clicking the "Properties" button for your bucket (up on the right hand corner) and then clicking on the "Website" tab. You'll then just have to check the "Enabled" checkbox, and choose your Index and Error Documents.
 
-	{% img /images/s3-web-settings.png 'Enable Static Website on S3' 'S3 Static Website Settings' %}
+	{% img /images/posts/s3-web-settings.png 'Enable Static Website on S3' 'S3 Static Website Settings' %}
 
 	This step allows you to create an HTTP endpoint through which your assets can be accessed. It's important to note this endpoint as we'll be using it later to setup CloudFront.
 
@@ -53,16 +53,16 @@ That's it as far as S3 goes. You're now ready to setup CloudFront.
 
 The only thing worth noting here is that while you're going through the wizard that creates your distribution, you **DO NOT** want to use your S3 bucket as your "Origin Domain Name". Rather, you want to use the "Endpoint" URL you got while setting up S3 as described in Step 2 above.
 
-{% img /images/cf-origin-settings.png 'Create Website Origin on CF' 'CF Origin Settings' %}
+{% img /images/posts/cf-origin-settings.png 'Create Website Origin on CF' 'CF Origin Settings' %}
 
 When you're done with the wizard, note the domain name for your CloudFront distribution. You'll need it to setup DNS.
 
 ###DNS (Route 53)
 
-{% img right /images/route53-cname-settings.png 400 'Setup CNAME on Route 53' 'DNS Settings' %}
+{% img /images/posts/route53-cname-settings.png 400 'Setup CNAME on Route 53' 'DNS Settings' %}
 
 Add a CNAME, and point it to the domain name of your CloudFront distribution. This blog, for example, points "blog.earaya.com" to [d31e45oz3360lh.cloudfront.net
-](d31e45oz3360lh.cloudfront.net) (which is what I got when I finished setting up my CF distribution as described above).
+](http://d31e45oz3360lh.cloudfront.net) (which is what I got when I finished setting up my CF distribution as described above).
 
 You don't necessarily have to setup DNS on AWS; your domain name registrar can likely add a CNAME record and point it to the CloudFront URL as well.
 
