@@ -206,6 +206,26 @@ end
 # Deploying  #
 ##############
 
+desc "S3 deploy task"
+task :s3deploy do
+	puts "## Deploy site to S3"
+	Rake::Task["generate"].execute
+	puts "## Deploying images..."
+	system ("s3cmd sync public/images/ s3://blog.earaya.com/images/ --recursive --delete-removed --add-header \"Cache-Control: public\" --add-header \"Expires: " + (DateTime.now + 365).to_date.httpdate.to_s + "\"")
+	
+	puts "## Gzipping sytlesheets..."
+	system ("for f in $(find public/stylesheets/ -name *.css) ; do gzip -c -9 \"$f\" > \"$f.gz\" ; mv \"$f.gz\" \"$f\"  ; done")
+	
+	puts "## Gzipping javascripts..."
+	system ("for f in $(find public/javascripts/ -name *.js) ; do gzip -c -9 \"$f\" > \"$f.gz\" ; mv \"$f.gz\" \"$f\"  ; done")
+		
+	puts "## Gzip html files..."
+	system ("for f in $(find public/ -name *.html) ; do gzip -c -9 \"$f\" > \"$f.gz\" ; mv \"$f.gz\" \"$f\"  ; done")
+	
+	puts "## Deploying files"
+	system ("s3cmd sync public/ s3://blog.earaya.com/ --exclude \"images/\" --recursive --delete-removed --add-header \"Cache-Control: public\" --add-header \"Content-Encoding: gzip\" --add-header \"Expires: " + (DateTime.now + 5).to_date.httpdate.to_s + "\"")
+end
+
 desc "Default deploy task"
 task :deploy do
   # Check if preview posts exist, which should not be published
