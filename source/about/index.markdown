@@ -11,7 +11,7 @@ My name is Esteban Araya, and I am a computer enthusiast. I crave writing good s
 
 I started programming at an early age: I still remember when my parents brought our first [80286 computer](http://en.wikipedia.org/wiki/Intel_80286) home (I must have been about 8 or so), and immediately taking a liking to it. I wrote as many [MS-BASIC](http://en.wikipedia.org/wiki/Microsoft_BASIC) games as my friends were willing to play, and I haven't stopped coding since.
 
-I'm passionate about my craft. I constantly read books on the subject and I'm constantly practicing and improving my skills. I honestly hope you find something of value from what I've learned in my years tinkering with computers.
+I'm passionate about my craft. I constantly read [books](/recommended-books) on the subject and I'm constantly practicing and improving my skills. I honestly hope you find something of value from what I've learned in my years tinkering with computers.
 
 Thanks for stopping by. And happy hacking!
 
