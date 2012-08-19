@@ -6,7 +6,7 @@ comments: true
 categories: [security, java, .net]
 ---
 
-Just a few days ago a co-worker asked me about mongodb's choice of `char[]` for the password in their [authenticate](http://api.mongodb.org/java/current/com/mongodb/DB.html#authenticate(java.lang.String, char[]\)) call. He was wondering why they chose`char[]` over `String`.
+Just a few days ago a co-worker asked me about mongodb's choice of `char[]` for the password in their [authenticate](http://api.mongodb.org/java/current/com/mongodb/DB.html#authenticate(java.lang.String, char[]\)) call. He was wondering why they chose `char[]` over `String`.
 
 The reason is simple: some people feel that using a `char[]` is safer since you can "wipe out" the array after you're done with the data (eg. the password). `String` being an immutable type does not allow this precaution; once you're done with the `String` it'll live in memory until garbage collection decides to claim it at an undetermined time in the future.
 
