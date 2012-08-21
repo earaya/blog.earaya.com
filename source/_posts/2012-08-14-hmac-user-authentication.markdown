@@ -33,16 +33,16 @@ return clientToken.getSignature() == serverToken.getSignature();
 
 ```
 
-You can adjust the above code to also validate the timestamp and reject the token if it's too old (and require the user to sign in again), but you ge the point.
+You can adjust the above code to also validate the timestamp and reject the token if it's too old (and require the user to sign in again), but you get the point.
 
 One of the best things of using this idea for authentication is that you can now validate requests without keeping any sort of state: every request contains all the information you need to validate it. No need to keep any sort of session tokens around, and no need to do any kind of lookups; you're completely stateless. Pretty awesome, huh?
 
 ###Some Recommendations
 
-Please don't write your own cryptography code. Use a well known (preferably open source) library to calculate your HMACs. It's hard to get cryptography right, so this is an area were relying on the experience of experts is well worth it.
+Don't write your own cryptography code. Use a well known (preferably open source) library to calculate your HMACs. It's hard to get cryptography right, so this is an area were relying on the experience of experts is well worth it.
 
-Also, please make sure you have an effective key management and rotation strategy. If your HMAC key is compromised, you're toast: people will be able to create tokens illegitimately. I'd recommend you generate a new random key every time you deploy so that no one has knowledge of it and it is changed often. If you can't do that, at least make sure the key is never checked in anywhere in code and just very few individuals have access to it.
+Also, make sure you have an effective key management and rotation strategy. If your HMAC key is compromised, you're toast: people will be able to create tokens illegitimately. I'd recommend you generate a new random key every time you deploy so that no one has knowledge of it and it is changed often. If you can't do that, at least make sure the key is never checked in anywhere in code and just very few individuals have access to it.
 
-I really like this authentication scheme: the HMAC key is never sent to the client, so there's no key sharing and negotiation to get wrong; furthermore, with very few changes to your any authentication process, you can get a distributed authentication mechanism that is simple to write and easy to understand.
+I really like this authentication scheme: the HMAC key is never sent to the client, so there's no key sharing and negotiation to get wrong. Furthermore, with very few changes to any authentication process, you can get a stateless, distributed authentication mechanism that is simple to write and easy to understand.
 
 Give this a try and let me know what you think. Or if you see any big gaping holes, please let me know.
