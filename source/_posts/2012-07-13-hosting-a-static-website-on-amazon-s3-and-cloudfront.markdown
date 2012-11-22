@@ -6,7 +6,7 @@ comments: true
 categories: [aws-s3, aws-cloudfront, aws-route53]
 ---
 
-There are plenty of guides on how to host your static content on S3 and ClouFront, so in this tutorial I'll just focus on some of the likely problems you'll run into, and some good tips on making things better.
+There are plenty of guides on how to host your static content on S3 and CloudFront, so in this tutorial I'll just focus on some of the likely problems you'll run into, and some good tips on making things better.
 
 ###S3
 
@@ -14,7 +14,7 @@ The first thing you'll have to do to host your static content is create an S3 bu
 
 1. Make sure the bucket's name matches the URL you want to use. For example, for this blog, the bucket's name is blog.earaya.com.
 
-2. Enable website browsing. 
+2. Enable website browsing.
 
 	This is done by clicking the "Properties" button for your bucket (up on the right hand corner) and then clicking on the "Website" tab. You'll then just have to check the "Enabled" checkbox, and choose your Index and Error Documents.
 
