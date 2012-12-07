@@ -3,7 +3,7 @@ layout: post
 title: "Javascript AMD: Asynchrounous Module Definition"
 date: 2012-12-01 14:54
 comments: true
-categories: javascript, amd, requirejs
+categories: [javascript, amd, requirejs]
 ---
 
 Before you go any further, I should warn you: I have no idea what I'm talking about. I've only been doing "strong" client development in the browser for a few months. Note, however, that I say client development, not website development. Let me explain what I mean.
@@ -26,7 +26,7 @@ But enough talk, let's get to some code. I don't want to write a full tutorial o
 
 Here's how you define a module:
 
-````javascript
+```javascript
 
 define(['jquery', 'backbone'], function ($, Backbone) {
 
@@ -48,7 +48,7 @@ define(['jquery', 'backbone'], function ($, Backbone) {
 
 });
 
-````
+```
 
 I don't know about you, but the first time I saw an AMD module I immediately fell in love. Finally I saw an easy way to have private members. Finally there was a cleaner way to scope module and their dependencies. Also, not shown, here, with AMD you can lazily load your dependencies if you need to.
 
