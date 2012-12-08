@@ -6,17 +6,19 @@ comments: true
 categories: [javascript, amd, requirejs]
 ---
 
-Before you go any further, I should warn you: I have no idea what I'm talking about. I've only been doing "strong" client development in the browser for a few months. Note, however, that I say client development, not website development. Let me explain what I mean.
+Before you read any further, I should warn you: I have limited experience with JS. However, please hear me out; I've found that the concepts I'm going to talk about, although imporant, are still not widely adopted by Javascript developers.
 
 In the last few years we've seen a shift to the "cloud". With that, there has been a resurgence of the web. We're now doing things with HTML and HTTP that no one would have thought possible just 5 years ago. We now render data on the client, we push data from the server to the browser to have real time interactions like a native application would. Heck, we can even do 3D rendering on the browser... and if you have a modern browser, it works well!
 
 In a few words, we're doing what Java Applets promised to do but never accomplished.
 
-This web re-birth of the web, however, has been bumpy. Developing for the browser is plagued with problems. You have to target multiple (old) browsers, on multiple OSes, with multiples displays; you have to deal with disparate hardware, internet connections, etc. I think you get the point: you really don't know where and how your app is going to run. And to make all of this worse, the tooling for writing browser application is still maturing; there's not a lot of help out there.
+This re-birth of the web, however, has been bumpy. Developing for the browser is plagued with problems. You have to target multiple (old) browsers, on multiple OSes, with multiples displays; you have to deal with disparate hardware, internet connections, etc. I think you get the point: you really don't know where and how your app is going to run. And to make all of this worse, the tooling for writing browser applications is still maturing; there's not a lot of help out there.
 
-Imagine, for example, if you had to write a Java server applications and you didn't have a good compiler, or Jetty, or Jersey, or anything like. But even worse, imagine Java the language provided no mechanism for modularizing your code: not JARs, no classes, no nothing. Scary, huh?
+Imagine, for example, if you had to write a Java server application and you didn't have a good compiler; or if you had to add a bunch of conditionals to detect what OS you're running on - it'd be crazy, right?
 
-Well, to some extent that's the situation we find ourselves in when we write Javascript application. Javascript has no supports for modules. And of top of that, everything in the browser is globally scoped. Now, I'm aware that we developers have been playing games for years to diminish the global namespacing problem, but we really haven't had a good solution. Unitl now, at least. Now we have AMD... and it changes everything.
+But that's not even the worse of it; imagine Java the language provided no mechanism for modularizing your code: not JARs, no classes, no nothing. And of top of that everything was globally scoped. Scary, huh?
+
+Well, to some extent that's the situation we find ourselves in when we write Javascript applications. Javascript has no supports for modules. And of top of that, everything in the browser is globally scoped. Now, I'm aware that we developers have been playing games for years to diminish the global scoping problem, but we really haven't had a good solution. Unitl now, at least. Now we have AMD... and it changes everything.
 
 AMD stands for asynchronous module definition. The goal of the AMD format is to provide a solution for modular Javascript that we can use right now (while we wait for [harmony](http://wiki.ecmascript.org/doku.php?id=harmony:modules)).
 
@@ -50,8 +52,8 @@ define(['jquery', 'backbone'], function ($, Backbone) {
 
 ```
 
-I don't know about you, but the first time I saw an AMD module I immediately fell in love. Finally I saw an easy way to have private members. Finally there was a cleaner way to scope module and their dependencies. Also, not shown, here, with AMD you can lazily load your dependencies if you need to.
+I don't know about you, but the first time I saw an AMD module I immediately fell in love. Finally I saw an easy way to have private members. Finally there was a cleaner way to scope modules and their dependencies. I could go on and on, but I think the benefits I've listed, should be enough to convince you.
 
-Anyhow, I hope this has at least made you aware of AMD and. Writing Javascript apps on the browser doesn't have to be a pain anymore. In fact, I rather enjoy.
+Or at least, I hope this has at least made you aware of AMD and piqued your interest. Writing Javascript apps on the browser doesn't have to be a pain anymore. In fact, I rather enjoy.
 
-But honestly, however, I can't do this topic justice. Please go look at the RequireJS site and look at the samples and the documentation - espeically the the optmizer. Go look at [this post](http://tagneto.blogspot.com/2011/04/on-inventing-js-module-formats-and.html) by James Burke where talks about the many reasons developers are now using AMD and join the fun.
+I know, however, I haven't done this topic justice. Please go look at the RequireJS site and look at the samples and the documentation - espeically the the optmizer section. Go look at [this post](http://tagneto.blogspot.com/2011/04/on-inventing-js-module-formats-and.html) by James Burke where he talks about the many reasons developers are now using AMD. And then when you're done reading that, come join the fun.
