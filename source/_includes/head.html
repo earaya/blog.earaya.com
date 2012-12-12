@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
   <meta name="author" content="{{ site.author }}">
+  <ling rel="author" href="https://plus.google.com/118249606338079156492/" />
 
   {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
   <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
@@ -22,6 +23,6 @@
   <link href="{{ root_url }}/images/favicon.png" rel="icon">
   <link href="{{ root_url }}/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   {% include custom/head.html %}
-  
+
   {% include google_analytics.html %}
 </head>
