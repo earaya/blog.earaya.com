@@ -122,8 +122,8 @@ Directory hierarchies are represented in a similar manner, of course.
 
 ## Conclusion
 
-And there you have it folks. That's pretty much all there is to how Git store objects.
+And there you have it folks. That's pretty much all there is to how Git stores objects. Pretty simple, huh?
 
-I've gained a deep appreciation for Git. I think it's amazing how Linus built such a powerful and useful system by elegantly using simple concepts. It's really eye opening to see that Git is built just on top of a simple key-vaule store.
+I think it's amazing how Linus built such a powerful and useful system by elegantly using a simple hashmap. I wish my software was more like Git.
 
-I hope this brief explanation of the Git object store helps you understand Git a little bit better.
+I hope you too gain an appreciation for using simple constructs in your own code.
