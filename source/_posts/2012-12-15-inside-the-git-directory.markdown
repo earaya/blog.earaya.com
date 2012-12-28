@@ -8,7 +8,7 @@ categories: [vcs, git, dvcs, source control]
 
 Have you ever wondered how git works? Have you tried to figure out how git stores stuff?
 
-Well, I have and this is what I discovered about the git object store.
+Well, I have. This is what I discovered about the git object store.
 
 ## In the begining there was nothing.
 
