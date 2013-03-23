@@ -227,7 +227,8 @@ task :s3deploy do
 	system ("for f in $(find public/ -name \"*.html\" -o -name \"*.xml\") ; do gzip -c -9 \"$f\" > \"$f.gz\" ; mv \"$f.gz\" \"$f\"  ; done")
 
 	puts "## Deploying files"
-	system ("s3cmd sync public/ s3://blog.earaya.com/ --exclude \"images/\" --recursive --delete-removed --add-header \"Cache-Control: public\" --add-header \"Content-Encoding: gzip\" --add-header \"Expires: " + (DateTime.now + 5).to_date.httpdate.to_s + "\"")
+	system ("s3cmd sync public/ s3://blog.earaya.com/ --exclude \"images/\" --exclude \"*.xml\" --recursive --delete-removed --add-header \"Cache-Control: public\" --add-header \"Content-Encoding: gzip\" --add-header \"Expires: " + (DateTime.now + 5).to_date.httpdate.to_s + "\"")
+  system ("s3cmd sync public/ s3://blog.earaya.com/ --include \"*.xml\" --recursive --delete-removed --add-header \"Cache-Control: no-cache\" --add-header \"Content-Encoding: gzip\"")
 end
 
 desc "Default deploy task"
